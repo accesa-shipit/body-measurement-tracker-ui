@@ -1,7 +1,9 @@
 @import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
 
 .filter-box{
-  list-style: none;font-family: 'Raleway', sans-serif;
+  list-style: none;
+  font-family: 'Raleway', sans-serif;
+  padding-top: 3%;
 }
 
 /*Questions style*/
@@ -15,6 +17,8 @@
   font-family: 'Raleway', sans-serif;
   font-size: 90%;
   letter-spacing: 2px;
+  padding-bottom: 1%;
+  padding-top: 1%;
 }
 
 /*Checkboxes styles*/

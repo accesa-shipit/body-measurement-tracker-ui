@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
-import {FormsModule} from '@angular/forms';
-import {HomeRoutingModule} from './home-routing.module';
+import { FormsModule } from '@angular/forms';
+import { HomeRoutingModule } from './home-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MeasurementComponent } from './measurement/measurement.component';
 import { ScreeningComponent } from './profile/extra/screening/screening.component';
