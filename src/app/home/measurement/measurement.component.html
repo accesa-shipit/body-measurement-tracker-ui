@@ -1,0 +1,189 @@
+<div class="container">
+
+
+  <div class="card profile">
+    <h5 class="card-header"><i class="fas fa-user-astronaut fa-2x"></i> Eusebiu Biroas - 30 years</h5>
+    <div class="card-body">
+      <!--<h5 class="card-title">Special title treatment</h5>-->
+      <div class="image float-left user-l">
+        <img src="http://www.avatarsdb.com/avatars/cardiogram_line.gif" class="img-thumbnail" alt="avatar"/>
+      </div>
+      <div class="container-fluid">
+
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h6>Name: {{selectedUser?.name}}</h6>
+              <h6>Gender: Male</h6>
+              <h6>Age: 30</h6>
+              <h6>Height: 177 cm <i class="far fa-edit"></i></h6>
+              <h6>Weight: 72 kg</h6>
+              <h6>Base Caloric Intake: 2300 kcal</h6>
+              <h6>Muscular mass: 43%</h6>
+              <h6>BMI: <span style="color: green">18</span></h6>
+
+
+              <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+
+
+            </div>
+            <div class="col">
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Weight</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Arms</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Chest</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Waist</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">More</a>
+                </li>
+                <!--<li class="nav-item">-->
+                <!--<div class="">-->
+                <!--<button type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                <!--More-->
+                <!--</button>-->
+                <!--<div class="dropdown-menu">-->
+                <!--<a class="dropdown-item" href="#">More</a>-->
+                <!--<a class="dropdown-item" href="#">Another action</a>-->
+                <!--<a class="dropdown-item" href="#">Something else here</a>-->
+                <!--<div class="dropdown-divider"></div>-->
+                <!--<a class="dropdown-item" href="#">Separated link</a>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</li>-->
+
+
+              </ul>
+              <router-outlet name="chart"></router-outlet>
+
+              chart here
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p></p>
+      <div class="card">
+        <h6 class="card-header">Measurement history</h6>
+
+        <div class="card-body">
+
+          <table class="table table-hover table-striped table-bordered table-responsive">
+            <thead>
+            <tr>
+
+              <th scope="col" class="align-middle text-center">Date</th>
+              <th scope="col">Weight</th>
+              <th scope="col">Left Arm</th>
+              <th scope="col">Right Arm</th>
+              <th scope="col">Chest</th>
+              <th scope="col">Waist</th>
+              <th scope="col">Hips</th>
+              <th scope="col">Left Thigh</th>
+              <th scope="col">Right Thigh</th>
+              <th scope="col">Left Calf</th>
+              <th scope="col">Right Calf</th>
+              <th scope="col">Fat %</th>
+              <th scope="col">Visceral Fat</th>
+              <th scope="col">Action</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngIf="insertMode">
+              <th scope="row" class="row-header">{{newMeasurement.date | date}}</th>
+              <td><input #input1 class="form-control form-control-sm" type="number"
+                         [(ngModel)]="newMeasurement.weight"/></td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.leftArm"/></td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.rightArm"/></td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.chest"/></td>
+
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.hips"/></td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.waist"/></td>
+
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.leftThigh"/>
+              </td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.rightThigh"/>
+              </td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.leftCalf"/></td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.rightCalf"/>
+              </td>
+              <td><input class="form-control form-control-sm" type="number"
+                         [(ngModel)]="newMeasurement.bodyFatPercentage"/></td>
+              <td><input class="form-control form-control-sm" type="number"
+                         [(ngModel)]="newMeasurement.visceralFatPercentage"/></td>
+              <td>
+                <button class="btn-primary" (click)="insertMeasurement(newMeasurement)"><i
+                  class="far fa-save fa-2x"></i></button>
+              </td>
+            </tr>
+            <tr *ngFor="let measurement of selectedUser?.measurements">
+              <th scope="row" class="row-header">{{measurement.date | date}}</th>
+              <td>{{measurement.weight}} <i class="fas fa-level-down-alt" style="color:green"></i></td>
+              <td>{{measurement.leftArm}} <i class="fas fa-level-up-alt" style="color:green"></i></td>
+              <td>{{measurement.rightArm}}</td>
+              <td>{{measurement.chest}}</td>
+              <td>{{measurement.waist}}</td>
+              <td>{{measurement.hips}}</td>
+              <td>{{measurement.leftThigh}}</td>
+              <td>{{measurement.rightThigh}}</td>
+              <td>{{measurement.leftCalf}}</td>
+              <td>{{measurement.rightCalf}}</td>
+              <td>{{measurement.bodyFatPercentage}}</td>
+              <td>{{measurement.visceralFatPercentage}}</td>
+              <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button class="btn-primary"><i class="far fa-edit"></i></button>
+                  <button class="btn-danger" (click)="deleteByIndex(i)"><i class="far fa-trash-alt"></i></button>
+                </div>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+          <button class="btn btn-dark" (click)="startInsertMode()">Add new measurements</button>
+
+        </div>
+      </div>
+      <p></p>
+
+      <div class="card text-center">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'screening'}}]" routerLinkActive="active">Screening</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'anamnesis'}}]" routerLinkActive="active">Anamnesis</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'nutrition'}}]" routerLinkActive="active">Nutrition</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'exercises'}}]" routerLinkActive="active">Exercises</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'messages'}}]" routerLinkActive="active">Messages</a>
+            </li>
+
+          </ul>
+        </div>
+        <router-outlet name="extra"></router-outlet>
+        <div class="card-body">
+          <h5 class="card-title">Screening</h5>
+          <p class="card-text">Here will be the screening content</p>
+          <a href="#" class="btn btn-primary">Add screening details</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
