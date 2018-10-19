@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 
 
 import {AppComponent} from './app.component';
-import {AnamnesisComponent} from './home/profile/extra/anamnesis/anamnesis.component';
 import {AlertModule} from 'ngx-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HomeModule} from './home/home.module';
@@ -15,7 +14,6 @@ import {MaterialModule} from './material.module';
 @NgModule({
   declarations: [
     AppComponent,
-    AnamnesisComponent,
     LoginComponent
   ],
   imports: [

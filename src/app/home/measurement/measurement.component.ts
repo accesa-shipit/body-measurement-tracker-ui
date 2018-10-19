@@ -23,7 +23,7 @@ export class MeasurementComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.navigate(['/home/measurement', {outlets: {extra: ['anamnesis']}}]);
+    this.router.navigate(['/home/measurement', {outlets: {extra: ['nutrition']}}]);
 
     this.userProfileService.getUsers().subscribe(users => {
         this.users = users;
