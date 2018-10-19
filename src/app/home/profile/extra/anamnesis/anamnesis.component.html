@@ -1,3 +1,57 @@
-<p>
-  anamnesis works!
-</p>
+<form class="example-form">
+<ul>
+  <li class="filter-box">
+    <div class="viewport">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Name">
+      </mat-form-field>
+    </div>
+  </li>
+
+  <li class="filter-box">
+    <div class="viewport">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Surname">
+      </mat-form-field>
+    </div>
+  </li>
+  <mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Date of birth">
+  <mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <!--<li class="filter-box">-->
+  <li class="filter-box">
+    <h2 class="question">Do you take medication or supliments? If so, please mention them bellow.</h2>
+    <input type="checkbox" id="box-5">
+    <label for="box-5">Yes</label>
+
+    <input type="checkbox" id="box-6">
+    <label for="box-6">No</label>
+
+    <mat-form-field class="example-full-width">
+      <input matInput>
+    </mat-form-field>
+  </li>
+
+  <li class="filter-box">
+    <h2 class="question">Do you take medication or supliments? If so, please mention them bellow.</h2>
+    <input type="checkbox" id="box-5">
+    <label for="box-5">Yes</label>
+
+    <input type="checkbox" id="box-6">
+    <label for="box-6">No</label>
+  </li>
+  <!--</li>-->
+</ul>
+</form>
+
+
+<!--<div class="container extra">-->
+<!--<div class = "col-md-2"></div>-->
+<!--<div class = "col-md-8">-->
+<!--<label>"Ceva"</label>-->
+<!--</div>-->
+<!--<div class = "col-md-2"></div>-->
+<!--</div>-->
