@@ -19,13 +19,12 @@ export class MeasurementComponent implements OnInit {
   @ViewChild('input1') input1: ElementRef;
 
 
-
-
   constructor(private router: Router, private userProfileService: UserProfileServiceService) {
   }
 
   ngOnInit() {
-    this.router.navigate(['/home/measurement',{ outlets: { extra: [ 'screening' ] }}]);
+    this.router.navigate(['/home/measurement', {outlets: {extra: ['anamnesis']}}]);
+
     this.userProfileService.getUsers().subscribe(users => {
         this.users = users;
         this.selectedUser = this.users[0];

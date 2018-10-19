@@ -38,6 +38,7 @@ import {HomeModule} from './home/home.module';
 import {HomeRoutingModule} from './home/home-routing.module';
 import {AppRoutingModule} from './app-routing.module';
 import {LoginComponent} from './login/login.component';
+import {MaterialModule} from './material.module';
 
 @NgModule({
   declarations: [
@@ -52,42 +53,7 @@ import {LoginComponent} from './login/login.component';
     AppRoutingModule,
     AlertModule.forRoot(),
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatFormFieldModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatCheckboxModule,
-    MatCheckboxModule,
-    MatButtonModule,
-    MatInputModule,
-    MatAutocompleteModule,
-    MatDatepickerModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatStepperModule,
-    MatTabsModule,
-    MatExpansionModule,
-    MatButtonToggleModule,
-    MatChipsModule,
-    MatIconModule,
-    MatProgressSpinnerModule,
-    MatProgressBarModule,
-    MatDialogModule,
-    MatTooltipModule,
-    MatSnackBarModule,
-    MatTableModule,
-    MatSortModule,
-    MatPaginatorModule,
-    MatNativeDateModule
+    MaterialModule
 
   ],
   providers: [],

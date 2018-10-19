@@ -11,6 +11,12 @@
   letter-spacing: 2px;
 }
 
+.sub-question{
+  font-family: 'Raleway', sans-serif;
+  font-size: 90%;
+  letter-spacing: 2px;
+}
+
 /*Checkboxes styles*/
 input[type="checkbox"] { display: none; }
 
