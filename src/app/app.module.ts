@@ -34,15 +34,22 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {HomeModule} from './home/home.module';
+import {HomeRoutingModule} from './home/home-routing.module';
+import {AppRoutingModule} from './app-routing.module';
+import {LoginComponent} from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AnamnesisComponent
-
+    AnamnesisComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
+    HomeModule,
+    HomeRoutingModule,
+    AppRoutingModule,
     AlertModule.forRoot(),
     BrowserAnimationsModule,
     MatButtonModule,
