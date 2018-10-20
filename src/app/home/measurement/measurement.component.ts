@@ -20,6 +20,7 @@ export class MeasurementComponent implements OnInit {
   chartMeasurements: Measurement[];
   searchVisible = true;
   today: Date;
+  isTrainer = false;
 
   @ViewChild('input1') input1: ElementRef;
   @ViewChild('myChart') myChart: jqxChartComponent;
