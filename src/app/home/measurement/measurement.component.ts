@@ -67,7 +67,7 @@ export class MeasurementComponent implements OnInit {
     {
       unitInterval: 5,
       minValue: 60,
-      maxValue: 68,
+      maxValue: 72,
       title: {text: 'Weight in kg<br><br>'},
       labels: {horizontalAlignment: 'right'}
     };

@@ -27,7 +27,8 @@ export class UserProfileServiceService {
       }
 
 
-      const measurement = new Measurement();
+      let measurement = new Measurement();
+      measurement = new Measurement();
       measurement.date = new Date();
       measurement.date.setMonth(7);
       measurement.bodyFatPercentage = 16;
@@ -43,8 +44,14 @@ export class UserProfileServiceService {
       measurement.leftCalf = 35;
       measurement.rightCalf = 36;
       measurement.weight = 63;
+      if (i == 0 || i == 6) {
+        this.userProfiles[i].measurements = new Array(3);
+      }
+      else {
+        this.userProfiles[i].measurements = new Array(2);
 
-      this.userProfiles[i].measurements = new Array(2);
+      }
+
       this.userProfiles[i].measurements[0] = measurement;
 
       let measurement2 = new Measurement();
@@ -64,8 +71,67 @@ export class UserProfileServiceService {
       measurement2.leftCalf = 35;
       measurement2.rightCalf = 36;
       measurement2.weight = 65;
+
+
       this.userProfiles[i].measurements[1] = measurement2;
 
+      if (i === 0 || i === 6) {
+
+
+        measurement.date = new Date();
+        measurement.date.setMonth(7);
+        measurement.bodyFatPercentage = 14;
+        measurement.muscularMassPercentage = 43;
+
+        measurement.chest = 92;
+        measurement.leftArm = 34;
+        measurement.rightArm = 33;
+        measurement.waist = 84;
+        measurement.hips = 93;
+        measurement.rightThigh = 49;
+        measurement.leftThigh = 48;
+        measurement.leftCalf = 34;
+        measurement.rightCalf = 35;
+        measurement.weight = 71;
+
+        this.userProfiles[i].measurements[0] = measurement;
+
+
+        measurement2.date = new Date();
+        measurement2.date.setMonth(4);
+        measurement2.bodyFatPercentage = 17;
+        measurement2.muscularMassPercentage = 41;
+        measurement2.chest = 89;
+        measurement2.leftArm = 31;
+        measurement2.rightArm = 31;
+        measurement2.waist = 80;
+        measurement2.hips = 94;
+        measurement2.rightThigh = 47;
+        measurement2.leftThigh = 47;
+        measurement2.leftCalf = 34;
+        measurement2.rightCalf = 35;
+        measurement2.weight = 68;
+        this.userProfiles[i].measurements[1] = measurement2;
+
+        let measurement3 = new Measurement();
+
+
+        measurement3.date = new Date();
+        measurement3.date.setMonth(2);
+        measurement3.bodyFatPercentage = 16;
+        measurement3.muscularMassPercentage = 41;
+        measurement3.chest = 89;
+        measurement3.leftArm = 30;
+        measurement3.rightArm = 30;
+        measurement3.waist = 75;
+        measurement3.hips = 92;
+        measurement3.rightThigh = 46;
+        measurement3.leftThigh = 47;
+        measurement3.leftCalf = 34;
+        measurement3.rightCalf = 35;
+        measurement3.weight = 66;
+        this.userProfiles[i].measurements[2] = measurement3;
+      }
 
     }
   }
