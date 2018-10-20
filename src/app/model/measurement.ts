@@ -11,6 +11,7 @@ export class Measurement {
  rightCalf: number;
  bodyFatPercentage: number;
  visceralFatPercentage: number;
- date: Date;
+ muscularMassPercentage: number;
+  date: Date;
 
 }

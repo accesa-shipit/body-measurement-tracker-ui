@@ -12,6 +12,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {LoginComponent} from './login/login.component';
 import {MaterialModule} from './material.module';
 import {SchedulerComponent} from './home/scheduler/scheduler.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {SchedulerComponent} from './home/scheduler/scheduler.component';
     AppRoutingModule,
     AlertModule.forRoot(),
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
 
   ],
   providers: [],

@@ -98,6 +98,9 @@ export class MeasurementComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isTrainer = localStorage.getItem('isTrainer') === 'true';
+
+
     this.router.navigate(['/home/measurement', {outlets: {extra: ['anamnesis']}}]);
 
     this.userProfileService.getUsers().subscribe(users => {
@@ -144,8 +147,9 @@ export class MeasurementComponent implements OnInit {
   }
 
   getBMI(): number {
-    return Math.round(this.selectedUser.measurements[0].weight / ((this.selectedUser.height / 100) * (this.selectedUser.height / 100)));
+    const bmi = parseFloat(this.selectedUser.measurements[0].weight / ((this.selectedUser.height / 100) * (this.selectedUser.height / 100))).toFixed(2);
 
+    return bmi;
 
   }
 

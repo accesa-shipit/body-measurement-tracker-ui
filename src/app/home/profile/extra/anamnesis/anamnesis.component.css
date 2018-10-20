@@ -66,4 +66,7 @@ input[type="checkbox"]:checked + label:before {
   transform: rotate(45deg);
 }
 
+.mat-form-field{
+  width: 50% !important;
+}
 

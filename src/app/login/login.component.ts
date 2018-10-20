@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,13 +8,33 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  email: String;
+  password: String;
+  loginFailed: boolean;
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
   }
 
   doLogin() {
-    this.router.navigate(['/home']);
+console.log(this.email);
+    console.log(this.password);
+    if (this.email === 'demo.trainer@accesa.eu' && this.password === '1234') {
+      localStorage.setItem('isTrainer', 'true');
+
+      this.router.navigate(['/home']);
+
+    } else if (this.email === 'demo.employee@accesa.eu' && this.password === '1234') {
+      localStorage.setItem('isTrainer', 'false');
+
+      this.router.navigate(['/home']);
+    } else {
+      this.loginFailed = true;
+    }
+
+
   }
 
 }
