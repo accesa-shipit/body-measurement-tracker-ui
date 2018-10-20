@@ -15,7 +15,7 @@ export class UserProfileServiceService {
 
     for (let i = 0; i < 10; i++) {
       this.userProfiles[i] = new UserProfile();
-      this.userProfiles[i].name = UserProfileServiceService.randomEl(this.firstNames) + ' ' + UserProfileServiceService.randomEl(this.lastNames);
+      this.userProfiles[i].name = this.firstNames[i] + ' ' + this.lastNames[i];
       this.userProfiles[i].profileImage = this.images[i]; // UserProfileServiceService.randomEl(this.images);
       this.userProfiles[i].age = this.randomIntFromInterval(23, 30);
       this.userProfiles[i].height = 177;
@@ -61,8 +61,8 @@ export class UserProfileServiceService {
     }
   }
 
-  firstNames = ['Gabriel', 'David', 'Silvia', 'Georgeta'];
-  lastNames = ['Stelian', 'Adam', 'Vasilescu', 'Negrescu'];
+  firstNames = ['Gabriel', 'David', 'Silvia', 'Georgeta', 'Matei', 'Andreea', 'Demo', 'Albert', 'Teodor', 'Liana'];
+  lastNames = ['Stelian', 'Adam', 'Vasilescu', 'Negrescu', 'Grigorescu', 'Dumitru', 'Employee', 'Adam', 'Vasile', 'Dalca'];
   images = ['http://www.avatarsdb.com/avatars/hi.gif',
     'http://www.avatarsdb.com/avatars/cardiogram_line.gif',
     'http://www.avatarsdb.com/avatars/fire_01.gif',

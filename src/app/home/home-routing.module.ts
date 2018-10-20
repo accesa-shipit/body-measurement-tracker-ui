@@ -11,6 +11,7 @@ import {GoalsComponent} from './profile/extra/goals/goals.component';
 import {SchedulerComponent} from './scheduler/scheduler.component';
 import {StatisticsComponent} from './statistics/statistics.component';
 import {PricingComponent} from './pricing/pricing.component';
+import {PrivacyComponent} from './privacy/privacy.component';
 
 
 const routes: Routes = [
@@ -33,7 +34,9 @@ const routes: Routes = [
       {path: 'scheduler', component: SchedulerComponent},
       {path: 'pricing', component: PricingComponent},
       {path: 'statistics', component: StatisticsComponent},
-      {path: 'messages', component: MessagesComponent}
+      {path: 'messages', component: MessagesComponent},
+      {path: 'privacy', component: PrivacyComponent}
+
     ]
   }
 ];

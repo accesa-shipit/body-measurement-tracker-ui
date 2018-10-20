@@ -15,6 +15,7 @@ import {MaterialModule} from '../material.module';
 import {StatisticsComponent} from './statistics/statistics.component';
 import {ModalModule} from 'ngx-bootstrap';
 import { PricingComponent } from './pricing/pricing.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { PricingComponent } from './pricing/pricing.component';
     MessagesComponent,
     GoalsComponent,
     jqxChartComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    PrivacyComponent
     ]
 })
 export class HomeModule {

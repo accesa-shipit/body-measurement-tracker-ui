@@ -153,13 +153,33 @@ export class MeasurementComponent implements OnInit {
 
   }
 
+  deleteByIndex(i) {
+    this.selectedUser.measurements.splice(i, 1);
+    this.chartMeasurements = this.selectedUser.measurements.slice().reverse();
+
+    this.myChart.update();
+
+  }
+
+
   onSelect(user: UserProfile) {
+    if (this.isTrainer == false) {
+      return;
+    }
     this.selectedUser = user;
+    this.chartMeasurements = this.selectedUser.measurements.slice().reverse();
+
   }
 
   getBMI(): number {
-    // @ts-ignore
-    const bmi = parseFloat(this.selectedUser.measurements[0].weight / ((this.selectedUser.height / 100) * (this.selectedUser.height / 100))).toFixed(2);
+    const bmi = 0;
+
+    try {
+      // @ts-ignore
+      bmi = parseFloat(this.selectedUser.measurements[0].weight / ((this.selectedUser.height / 100) * (this.selectedUser.height / 100))).toFixed(2);
+    } catch (e) {
+      console.log(e);
+    }
 
     return bmi;
 
@@ -168,8 +188,19 @@ export class MeasurementComponent implements OnInit {
   getBMR(): number {
     // For men:	BMR = 10 × weight(kg) + 6.25 × height(cm) - 5 × age(y) + 5
     // For women:	BMR = 10 × weight(kg) + 6.25 × height(cm) - 5 × age(y) - 16
+    try {
+      if (this.selectedUser.gender === 'Male') {
+        return Math.floor(10 * this.selectedUser.measurements[0].weight + 6.25 * this.selectedUser.height - 5 * this.selectedUser.age + 5);
+      }
+      else {
+        return Math.floor(10 * this.selectedUser.measurements[0].weight + 6.25 * this.selectedUser.height - 5 * this.selectedUser.age + 5);
 
-    return Math.floor(10 * this.selectedUser.measurements[0].weight + 6.25 * this.selectedUser.height - 5 * this.selectedUser.age + 5);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+
+    return 0;
   }
 
 
