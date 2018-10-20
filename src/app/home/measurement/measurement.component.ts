@@ -183,7 +183,11 @@ export class MeasurementComponent implements OnInit {
       ],
       title: 'Modal with component'
     };
-    this.bsModalRef = this.modalService.show(PricingComponent, {initialState});
+    this.modalService.show(PricingComponent, {class: 'modal-lg'});
+
+
+    //this.bsModalRef = this.modalService.show(PricingComponent, {initialState});
+
     this.bsModalRef.content.closeBtnName = 'Close';
   }
 
