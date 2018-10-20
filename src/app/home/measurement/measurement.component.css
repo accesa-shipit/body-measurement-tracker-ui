@@ -57,10 +57,12 @@ ul {
 .heroes li.selected:hover {
   background-color: #BBD8DC !important;
   color: white;
+
 }
 
 .heroes li:hover {
-  background-color: #607D8B;
+  background-color: #BBD8DC !important;
+
   left: .1em;
 }
 
@@ -85,7 +87,8 @@ ul {
 }
 
 .selected {
-  background-color: #CFD8DC !important;
+  background-color: #BBD8DC !important;
+
   color: white;
 }
 
@@ -165,5 +168,13 @@ ul {
 
 }
 
+.premium{
+  cursor: pointer;
+  color: #007bff !important;
+}
 
+.premium:hover{
+  cursor: pointer;
+  color: snow !important;
+}
 

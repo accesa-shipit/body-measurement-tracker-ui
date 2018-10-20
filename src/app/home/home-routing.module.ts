@@ -8,6 +8,10 @@ import {NutritionComponent} from './profile/extra/nutrition/nutrition.component'
 import {ExercisesComponent} from './profile/extra/exercises/exercises.component';
 import {MessagesComponent} from './profile/extra/messages/messages.component';
 import {GoalsComponent} from './profile/extra/goals/goals.component';
+import {SchedulerComponent} from './scheduler/scheduler.component';
+import {StatisticsComponent} from './statistics/statistics.component';
+import {PricingComponent} from './pricing/pricing.component';
+
 
 const routes: Routes = [
   {
@@ -25,7 +29,11 @@ const routes: Routes = [
 
 
         ]
-      }
+      },
+      {path: 'scheduler', component: SchedulerComponent},
+      {path: 'pricing', component: PricingComponent},
+      {path: 'statistics', component: StatisticsComponent},
+      {path: 'messages', component: MessagesComponent}
     ]
   }
 ];

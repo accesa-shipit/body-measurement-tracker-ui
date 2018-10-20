@@ -9,5 +9,6 @@ export class UserProfile {
   measurements: Measurement[];
   profileImage: String;
   updateDate: Date;
+  gender: string;
 
 }

@@ -4,6 +4,10 @@ import {Router} from '@angular/router';
 import {Measurement} from '../../model/measurement';
 import {UserProfileServiceService} from '../../service/user-profile-service.service';
 import {jqxChartComponent} from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {SchedulerComponent} from '../scheduler/scheduler.component';
+import {AnamnesisComponent} from '../profile/extra/anamnesis/anamnesis.component';
+import {PricingComponent} from '../pricing/pricing.component';
 
 
 @Component({
@@ -21,6 +25,8 @@ export class MeasurementComponent implements OnInit {
   searchVisible = true;
   today: Date;
   isTrainer = false;
+  bsModalRef: BsModalRef;
+
 
   @ViewChild('input1') input1: ElementRef;
   @ViewChild('myChart') myChart: jqxChartComponent;
@@ -92,7 +98,7 @@ export class MeasurementComponent implements OnInit {
 
   // /CHART
 
-  constructor(private router: Router, private userProfileService: UserProfileServiceService) {
+  constructor(private router: Router, private userProfileService: UserProfileServiceService, private modalService: BsModalService) {
     this.today = new Date();
     this.today.setHours(0);
   }
@@ -105,7 +111,12 @@ export class MeasurementComponent implements OnInit {
 
     this.userProfileService.getUsers().subscribe(users => {
         this.users = users;
-        this.selectedUser = this.users[0];
+        if (this.isTrainer) {
+          this.selectedUser = this.users[0];
+        } else {
+          this.selectedUser = this.users[6];
+
+        }
         console.log('got users');
         this.chartMeasurements = this.selectedUser.measurements.slice().reverse();
       }
@@ -153,5 +164,28 @@ export class MeasurementComponent implements OnInit {
     return bmi;
 
   }
+
+  getBMR(): number {
+    // For men:	BMR = 10 × weight(kg) + 6.25 × height(cm) - 5 × age(y) + 5
+    // For women:	BMR = 10 × weight(kg) + 6.25 × height(cm) - 5 × age(y) - 16
+
+    return Math.floor(10 * this.selectedUser.measurements[0].weight + 6.25 * this.selectedUser.height - 5 * this.selectedUser.age + 5);
+  }
+
+
+  openModalWithComponent() {
+    const initialState = {
+      list: [
+        'Open a modal with component',
+        'Pass your data',
+        'Do something else',
+        '...'
+      ],
+      title: 'Modal with component'
+    };
+    this.bsModalRef = this.modalService.show(PricingComponent, {initialState});
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
+
 
 }

@@ -13,13 +13,15 @@ import {LoginComponent} from './login/login.component';
 import {MaterialModule} from './material.module';
 import {SchedulerComponent} from './home/scheduler/scheduler.component';
 import {FormsModule} from '@angular/forms';
+import {PricingComponent} from './home/pricing/pricing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnamnesisComponent,
     LoginComponent,
-    SchedulerComponent
+    SchedulerComponent,
+    PricingComponent
   ],
   imports: [
     BrowserModule,

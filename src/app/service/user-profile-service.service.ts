@@ -16,21 +16,25 @@ export class UserProfileServiceService {
     for (let i = 0; i < 10; i++) {
       this.userProfiles[i] = new UserProfile();
       this.userProfiles[i].name = UserProfileServiceService.randomEl(this.firstNames) + ' ' + UserProfileServiceService.randomEl(this.lastNames);
-      this.userProfiles[i].profileImage = UserProfileServiceService.randomEl(this.images);
+      this.userProfiles[i].profileImage = this.images[i]; // UserProfileServiceService.randomEl(this.images);
       this.userProfiles[i].age = this.randomIntFromInterval(23, 30);
       this.userProfiles[i].height = 177;
+      this.userProfiles[i].gender = 'Male';
 
 
       const measurement = new Measurement();
       measurement.date = new Date();
       measurement.bodyFatPercentage = 16;
+      measurement.muscularMassPercentage = 42;
+
       measurement.chest = 88;
       measurement.leftArm = 30;
       measurement.rightArm = 30;
       measurement.waist = 74;
+      measurement.hips = 89;
       measurement.rightThigh = 43;
       measurement.leftThigh = 43;
-      measurement.rightCalf = 35;
+      measurement.leftCalf = 35;
       measurement.rightCalf = 36;
       measurement.weight = 63;
 
@@ -40,13 +44,15 @@ export class UserProfileServiceService {
       let measurement2 = new Measurement();
       measurement2.date = new Date();
       measurement2.bodyFatPercentage = 16;
+      measurement.muscularMassPercentage = 43;
       measurement2.chest = 88;
       measurement2.leftArm = 30;
       measurement2.rightArm = 30;
       measurement2.waist = 74;
+      measurement.hips = 90;
       measurement2.rightThigh = 43;
       measurement2.leftThigh = 43;
-      measurement2.rightCalf = 35;
+      measurement2.leftCalf = 35;
       measurement2.rightCalf = 36;
       measurement2.weight = 65;
       this.userProfiles[i].measurements[1] = measurement2;
