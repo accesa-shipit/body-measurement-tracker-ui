@@ -147,6 +147,7 @@ export class MeasurementComponent implements OnInit {
   }
 
   getBMI(): number {
+    // @ts-ignore
     const bmi = parseFloat(this.selectedUser.measurements[0].weight / ((this.selectedUser.height / 100) * (this.selectedUser.height / 100))).toFixed(2);
 
     return bmi;
