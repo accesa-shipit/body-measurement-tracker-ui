@@ -14,7 +14,6 @@ import {jqxChartComponent} from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart
 import {MaterialModule} from '../material.module';
 import {StatisticsComponent} from './statistics/statistics.component';
 import {ModalModule} from 'ngx-bootstrap';
-import { PricingComponent } from './pricing/pricing.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 
 @NgModule({
