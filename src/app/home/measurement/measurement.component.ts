@@ -97,7 +97,7 @@ export class MeasurementComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.navigate(['/home/measurement', {outlets: {extra: ['login']}}]);
+    this.router.navigate(['/home/measurement', {outlets: {extra: ['anamnesis']}}]);
 
     this.userProfileService.getUsers().subscribe(users => {
         this.users = users;
