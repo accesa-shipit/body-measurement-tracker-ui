@@ -10,11 +10,21 @@ import { NutritionComponent } from './profile/extra/nutrition/nutrition.componen
 import { ExercisesComponent } from './profile/extra/exercises/exercises.component';
 import { MessagesComponent } from './profile/extra/messages/messages.component';
 import { GoalsComponent } from './profile/extra/goals/goals.component';
+import {jqxChartComponent} from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
+import { SchedulerComponent } from './scheduler/scheduler.component';
 
 @NgModule({
   imports: [
     CommonModule, FormsModule, HomeRoutingModule
   ],
-  declarations: [HomeComponent, NavbarComponent, MeasurementComponent, ScreeningComponent, NutritionComponent, ExercisesComponent, MessagesComponent, GoalsComponent]
+  declarations: [HomeComponent,
+    NavbarComponent,
+    MeasurementComponent,
+    ScreeningComponent,
+    NutritionComponent,
+    ExercisesComponent,
+    MessagesComponent,
+    GoalsComponent,
+    jqxChartComponent]
 })
 export class HomeModule { }

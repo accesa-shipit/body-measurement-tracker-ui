@@ -1,8 +1,67 @@
+<!--START sidebar-->
+
+<div class="card float-left search-collapsed" *ngIf="!searchVisible" style="margin-left: 20px;cursor: pointer"
+     (click)="searchVisible=!searchVisible">
+  <div class="card-header">
+    <i class="fas fa-search"></i>
+  </div>
+</div>
+<div class="card float-left card-search" *ngIf="searchVisible">
+  <div class="card-header">
+    <i class="fas fa-search"></i> Find user <i class="fas fa-less-than icon-right"
+                                               (click)="searchVisible=!searchVisible"></i>
+  </div>
+  <div class="container">
+    <p></p>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Enter name" aria-label="Recipient's username"
+             aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">Search</button>
+      </div>
+
+    </div>
+
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" checked id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1">
+        17/11/2018 Oradea Plaza
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1">
+        23/11/2018 Platinia
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1">
+        30/11/2018 Olimpia
+      </label>
+    </div>
+
+    <div class="container">
+      <ul class="heroes">
+        <li *ngFor="let user of users;let i = index"
+            (click)="onSelect(user)"
+            [class.selected]="user === selectedUser"
+            [class.modified]="user.updateDate > today">
+          <span class="badge">{{i+1}}</span> {{user.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--END sidebar-->
+
 <div class="container">
 
 
   <div class="card profile">
-    <h5 class="card-header"><i class="fas fa-user-astronaut fa-2x"></i> Eusebiu Biroas - 30 years</h5>
+    <h5 class="card-header"><i class="fas fa-user-astronaut fa-2x"></i> {{selectedUser.name}} - {{selectedUser.age}} years
+    </h5>
     <div class="card-body">
       <!--<h5 class="card-title">Special title treatment</h5>-->
       <div class="image float-left user-l">
@@ -15,12 +74,12 @@
             <div class="col">
               <h6>Name: {{selectedUser?.name}}</h6>
               <h6>Gender: Male</h6>
-              <h6>Age: 30</h6>
-              <h6>Height: 177 cm <i class="far fa-edit"></i></h6>
+              <h6>Age: {{selectedUser.age}}</h6>
+              <h6>Height: {{selectedUser.height}} cm <i class="far fa-edit"></i></h6>
               <h6>Weight: 72 kg</h6>
               <h6>Base Caloric Intake: 2300 kcal</h6>
               <h6>Muscular mass: 43%</h6>
-              <h6>BMI: <span style="color: green">18</span></h6>
+              <h6>BMI: <span style="color: green">{{getBMI()}} - You are healthy </span></h6>
 
 
               <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
@@ -61,7 +120,13 @@
               </ul>
               <router-outlet name="chart"></router-outlet>
 
-              chart here
+              <jqxChart #myChart
+                        [width]="500" [height]="200"
+                        [title]="'Weight'" [description]="'Last '+selectedUser.measurements.length+ ' measurements'"
+                        [showLegend]="true" [enableAnimations]="true" [padding]="padding"
+                        [titlePadding]="titlePadding" [(source)]="chartMeasurements" [xAxis]="xAxis"
+                        [valueAxis]="valueAxis" [seriesGroups]="seriesGroups" [colorScheme]="'scheme05'">
+              </jqxChart>
             </div>
           </div>
         </div>
@@ -157,19 +222,24 @@
         <div class="card-header">
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'screening'}}]" routerLinkActive="active">Screening</a>
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'screening'}}]"
+                 routerLinkActive="active">Screening</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'anamnesis'}}]" routerLinkActive="active">Anamnesis</a>
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'anamnesis'}}]"
+                 routerLinkActive="active">Anamnesis</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'nutrition'}}]" routerLinkActive="active">Nutrition</a>
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'nutrition'}}]"
+                 routerLinkActive="active">Nutrition</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'exercises'}}]" routerLinkActive="active">Exercises</a>
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'exercises'}}]"
+                 routerLinkActive="active">Exercises</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'messages'}}]" routerLinkActive="active">Messages</a>
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'messages'}}]"
+                 routerLinkActive="active">Messages</a>
             </li>
 
           </ul>
