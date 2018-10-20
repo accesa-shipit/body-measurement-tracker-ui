@@ -19,3 +19,7 @@
 
 .card { background-color: rgba(245, 245, 245, 0.6); }
 .card-header, .card-footer { opacity: 1}
+
+.mat-form-field{
+  width: 289px !important;
+}

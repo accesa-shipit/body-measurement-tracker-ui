@@ -19,8 +19,6 @@ th, td {
   text-align: center;
 }
 
-
-
 .card {
   background-color: rgba(245, 245, 245, 0.7);
 }
@@ -33,6 +31,14 @@ ul {
   padding-left: 0px !important;
 }
 
+.nav-link{
+  color: darkred;
+}
+
+.nav-link:hover{
+  background-color: #607D8B;
+  color: whitesmoke;
+}
 
 
 .heroes li {
@@ -52,8 +58,8 @@ ul {
 }
 
 .heroes li:hover {
-  color: #607D8B;
-  background-color: #DDD;
+  color: darkred;
+  background-color: #607D8B;
   left: .1em;
 }
 

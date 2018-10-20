@@ -12,10 +12,11 @@ import { MessagesComponent } from './profile/extra/messages/messages.component';
 import { GoalsComponent } from './profile/extra/goals/goals.component';
 import {jqxChartComponent} from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
 import { SchedulerComponent } from './scheduler/scheduler.component';
+import {MaterialModule} from '../material.module';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, HomeRoutingModule
+    CommonModule, FormsModule, HomeRoutingModule, MaterialModule
   ],
   declarations: [HomeComponent,
     NavbarComponent,
