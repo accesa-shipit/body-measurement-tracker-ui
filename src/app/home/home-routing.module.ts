@@ -7,22 +7,25 @@ import {AnamnesisComponent} from './profile/extra/anamnesis/anamnesis.component'
 import {NutritionComponent} from './profile/extra/nutrition/nutrition.component';
 import {ExercisesComponent} from './profile/extra/exercises/exercises.component';
 import {MessagesComponent} from './profile/extra/messages/messages.component';
+import {GoalsComponent} from './profile/extra/goals/goals.component';
 
 const routes: Routes = [
   {
     path: 'home', component: HomeComponent, children: [
       {path: '', redirectTo: '/home/measurement', pathMatch: 'full'},
-      {path: 'measurement', component: MeasurementComponent, children: [
+      {
+        path: 'measurement', component: MeasurementComponent, children: [
 
-  {path: 'screening', component: ScreeningComponent, outlet: 'extra'},
-  {outlet: 'extra', path: 'anamnesis', component: AnamnesisComponent},
-  {outlet: 'extra', path: 'nutrition', component: NutritionComponent},
-  {outlet: 'extra', path: 'exercises', component: ExercisesComponent},
-  {outlet: 'extra', path: 'messages', component: MessagesComponent}
+          {path: 'screening', component: ScreeningComponent, outlet: 'extra'},
+          {outlet: 'extra', path: 'anamnesis', component: AnamnesisComponent},
+          {outlet: 'extra', path: 'nutrition', component: NutritionComponent},
+          {outlet: 'extra', path: 'exercises', component: ExercisesComponent},
+          {outlet: 'extra', path: 'messages', component: MessagesComponent},
+          {outlet: 'extra', path: 'goals', component: GoalsComponent}
 
 
-
-]}
+        ]
+      }
     ]
   }
 ];
