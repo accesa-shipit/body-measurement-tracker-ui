@@ -130,6 +130,8 @@ ul {
     height: 900px !important;
     width: 15rem;
     margin-right: 5px;
+    margin-top: 20px;
+
   }
 
   .heroes {
@@ -146,6 +148,7 @@ ul {
     height: 900px !important;
     width: 15rem;
     margin-right: 5px;
+    margin-top: 20px;
   }
 
   .heroes {
@@ -156,6 +159,10 @@ ul {
   }
 }
 
+.search-collapsed{
+  margin-top: 20px;
+
+}
 
 
 
