@@ -7,8 +7,8 @@
 .firstScreenInfo
 {
   font-family: 'Raleway', sans-serif;
-  font-size: 0.75rem;
-padding-bottom: 1%;
+  font-size: 0.85rem;
+  padding-bottom: 1%;
 }
 
 .columnHeader
@@ -16,7 +16,7 @@ padding-bottom: 1%;
   font-family: 'Raleway', sans-serif;
   font-size: 1rem;
   background: lightgray;
-  text-align: center;
+  text-align: left;
   color: darkred;
 }
 
@@ -33,7 +33,6 @@ padding-bottom: 1%;
   text-align: left;
   color: darkred;
   padding-top: 1%;
-  font-size: 1rem;
 }
 
 .columnHeaderTest{
@@ -41,19 +40,10 @@ padding-bottom: 1%;
 }
 
 .question2{
-  padding-top: 15%;
+  padding-top: 5%;
 }
 
-/*.sportPosition{*/
-  /*font-family: 'Raleway', sans-serif;*/
-  /*font-size: 0.5rem;*/
-  /*text-align: center;*/
-  /*padding-top: 3%;*/
-/*}*/
+.primarySports{
+  width: 250px;
 
-/*.dominancePrevious {*/
-  /*font-family: 'Raleway', sans-serif;*/
-  /*font-size: 0.5rem;*/
-  /*text-align: center;*/
-  /*padding-top: 3%;*/
-/*}*/
+}
