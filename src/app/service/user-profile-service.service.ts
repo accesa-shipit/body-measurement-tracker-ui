@@ -24,6 +24,7 @@ export class UserProfileServiceService {
 
       const measurement = new Measurement();
       measurement.date = new Date();
+      measurement.date.setMonth(7);
       measurement.bodyFatPercentage = 16;
       measurement.muscularMassPercentage = 42;
 
@@ -42,20 +43,25 @@ export class UserProfileServiceService {
       this.userProfiles[i].measurements[0] = measurement;
 
       let measurement2 = new Measurement();
+
+
       measurement2.date = new Date();
+      measurement2.date.setMonth(4);
       measurement2.bodyFatPercentage = 16;
-      measurement.muscularMassPercentage = 43;
+      measurement2.muscularMassPercentage = 43;
       measurement2.chest = 88;
       measurement2.leftArm = 30;
       measurement2.rightArm = 30;
       measurement2.waist = 74;
-      measurement.hips = 90;
+      measurement2.hips = 90;
       measurement2.rightThigh = 43;
       measurement2.leftThigh = 43;
       measurement2.leftCalf = 35;
       measurement2.rightCalf = 36;
       measurement2.weight = 65;
       this.userProfiles[i].measurements[1] = measurement2;
+
+
 
 
     }

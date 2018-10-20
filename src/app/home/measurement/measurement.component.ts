@@ -127,7 +127,7 @@ export class MeasurementComponent implements OnInit {
 
   startInsertMode() {
     this.newMeasurement = Object.assign({}, this.selectedUser.measurements[0]);
-
+    this.newMeasurement.date = new Date();
     this.insertMode = true;
     setTimeout(() => {
       this.input1.nativeElement.focus();

@@ -184,8 +184,8 @@
               <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.rightArm"/></td>
               <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.chest"/></td>
 
-              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.hips"/></td>
               <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.waist"/></td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.hips"/></td>
 
               <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.leftThigh"/>
               </td>
@@ -211,57 +211,57 @@
                 <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.weight == selectedUser.measurements[i+1].weight " class="fas fa-arrows-alt-h" style="color:blue"></i>
               </td>
               <td>{{measurement.leftArm}}
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftArm > selectedUser.measurements[i+1].leftArm " class="fas fa-level-down-alt" style="color:green"></i>
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftArm < selectedUser.measurements[i+1].leftArm " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftArm < selectedUser.measurements[i+1].leftArm " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftArm > selectedUser.measurements[i+1].leftArm " class="fas fa-level-up-alt" style="color:red"></i>
                 <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftArm == selectedUser.measurements[i+1].leftArm " class="fas fa-arrows-alt-h" style="color:blue"></i>
               </td>
               <td>{{measurement.rightArm}}
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightArm > selectedUser.measurements[i+1].rightArm " class="fas fa-level-down-alt" style="color:green"></i>
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightArm < selectedUser.measurements[i+1].rightArm " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightArm < selectedUser.measurements[i+1].rightArm " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightArm > selectedUser.measurements[i+1].rightArm " class="fas fa-level-up-alt" style="color:red"></i>
                 <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightArm == selectedUser.measurements[i+1].rightArm " class="fas fa-arrows-alt-h" style="color:blue"></i></td>
               <td>{{measurement.chest}}
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.chest > selectedUser.measurements[i+1].chest " class="fas fa-level-down-alt" style="color:green"></i>
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.chest < selectedUser.measurements[i+1].chest " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.chest < selectedUser.measurements[i+1].chest " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.chest > selectedUser.measurements[i+1].chest " class="fas fa-level-up-alt" style="color:red"></i>
                 <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.chest == selectedUser.measurements[i+1].chest " class="fas fa-arrows-alt-h" style="color:blue"></i>
               </td>
               <td>{{measurement.waist}}
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.waist > selectedUser.measurements[i+1].waist " class="fas fa-level-down-alt" style="color:green"></i>
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.waist < selectedUser.measurements[i+1].waist " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.waist < selectedUser.measurements[i+1].waist " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.waist > selectedUser.measurements[i+1].waist " class="fas fa-level-up-alt" style="color:red"></i>
                 <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.waist == selectedUser.measurements[i+1].waist " class="fas fa-arrows-alt-h" style="color:blue"></i>
               </td>
               <td>{{measurement.hips}}
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.hips > selectedUser.measurements[i+1].hips " class="fas fa-level-down-alt" style="color:green"></i>
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.hips < selectedUser.measurements[i+1].hips " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.hips < selectedUser.measurements[i+1].hips " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.hips > selectedUser.measurements[i+1].hips " class="fas fa-level-up-alt" style="color:red"></i>
                 <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.hips == selectedUser.measurements[i+1].hips " class="fas fa-arrows-alt-h" style="color:blue"></i>
               </td>
               <td>{{measurement.leftThigh}}
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh > selectedUser.measurements[i+1].rightThigh " class="fas fa-level-down-alt" style="color:green"></i>
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh < selectedUser.measurements[i+1].rightThigh " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh < selectedUser.measurements[i+1].rightThigh " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh > selectedUser.measurements[i+1].rightThigh " class="fas fa-level-up-alt" style="color:red"></i>
                 <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh == selectedUser.measurements[i+1].rightThigh " class="fas fa-arrows-alt-h" style="color:blue"></i>
               </td>
               <td>{{measurement.rightThigh}}
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh > selectedUser.measurements[i+1].rightThigh " class="fas fa-level-down-alt" style="color:green"></i>
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh < selectedUser.measurements[i+1].rightThigh " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh < selectedUser.measurements[i+1].rightThigh " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh > selectedUser.measurements[i+1].rightThigh " class="fas fa-level-up-alt" style="color:red"></i>
                 <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh == selectedUser.measurements[i+1].rightThigh " class="fas fa-arrows-alt-h" style="color:blue"></i>
               </td>
               <td>{{measurement.leftCalf}}
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftCalf > selectedUser.measurements[i+1].leftCalf " class="fas fa-level-down-alt" style="color:green"></i>
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftCalf < selectedUser.measurements[i+1].leftCalf " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftCalf < selectedUser.measurements[i+1].leftCalf " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftCalf > selectedUser.measurements[i+1].leftCalf " class="fas fa-level-up-alt" style="color:red"></i>
                 <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftCalf == selectedUser.measurements[i+1].leftCalf " class="fas fa-arrows-alt-h" style="color:blue"></i>
               </td>
               <td>{{measurement.rightCalf}}
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightCalf > selectedUser.measurements[i+1].rightCalf " class="fas fa-level-down-alt" style="color:green"></i>
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightCalf < selectedUser.measurements[i+1].rightCalf " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightCalf < selectedUser.measurements[i+1].rightCalf " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightCalf > selectedUser.measurements[i+1].rightCalf " class="fas fa-level-up-alt" style="color:red"></i>
                 <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightCalf == selectedUser.measurements[i+1].rightCalf " class="fas fa-arrows-alt-h" style="color:blue"></i>
               </td>
               <td>{{measurement.bodyFatPercentage}}
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.bodyFatPercentage > selectedUser.measurements[i+1].bodyFatPercentage " class="fas fa-level-down-alt" style="color:green"></i>
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.bodyFatPercentage < selectedUser.measurements[i+1].bodyFatPercentage " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.bodyFatPercentage < selectedUser.measurements[i+1].bodyFatPercentage " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.bodyFatPercentage > selectedUser.measurements[i+1].bodyFatPercentage " class="fas fa-level-up-alt" style="color:red"></i>
                 <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.bodyFatPercentage == selectedUser.measurements[i+1].bodyFatPercentage " class="fas fa-arrows-alt-h" style="color:blue"></i>
               </td>
               <td>{{measurement.muscularMassPercentage}}
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.muscularMassPercentage > selectedUser.measurements[i+1].muscularMassPercentage " class="fas fa-level-down-alt" style="color:green"></i>
-                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.muscularMassPercentage < selectedUser.measurements[i+1].muscularMassPercentage " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.muscularMassPercentage < selectedUser.measurements[i+1].muscularMassPercentage " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.muscularMassPercentage > selectedUser.measurements[i+1].muscularMassPercentage " class="fas fa-level-up-alt" style="color:red"></i>
                 <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.muscularMassPercentage == selectedUser.measurements[i+1].muscularMassPercentage " class="fas fa-arrows-alt-h" style="color:blue"></i>
               </td>
               <td>
