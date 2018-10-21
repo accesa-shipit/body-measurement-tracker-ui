@@ -4,15 +4,15 @@
 <div class="container zoom">
   <div class="card card-container">
 
-      <mat-form-field class="email">
-        <input matInput type="email" id="email" placeholder = "E-mail"  autocomplete="off" [(ngModel)]="email">
-      </mat-form-field>
-      <mat-form-field class="pass">
-        <input matInput type="password" id="pass" placeholder = "Password" [(ngModel)]="password">
-      </mat-form-field>
-      <button type="submit" class="btn btn-primary btn-block" (click)="doLogin()" >Login</button>
-      <alert type="danger" *ngIf="loginFailed">
-        <strong>Oh snap!</strong> Username or password is wrong, please retry.
-      </alert>
+    <mat-form-field class="email">
+      <input matInput type="email" id="email" placeholder="E-mail" autocomplete="off" [(ngModel)]="email" >
+    </mat-form-field>
+    <mat-form-field class="pass">
+      <input matInput type="password" id="pass" placeholder="Password" [(ngModel)]="password" (keyup.enter)="doLogin()">
+    </mat-form-field>
+    <button type="submit" class="btn btn-primary btn-block" (click)="doLogin()">Login</button>
+    <alert type="danger" *ngIf="loginFailed">
+      <strong>Oh snap!</strong> Username or password is wrong, please retry.
+    </alert>
   </div>
 </div>
