@@ -3,7 +3,7 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 body{
-  background: url("https://static1.squarespace.com/static/5aa52cf496e76f127baccb92/t/5abc94eb6d2a733c07ae461d/1521141189527/shutterstock_596581631.jpg?format=2500w") no-repeat center center fixed;
+  background: url("https://bmt.devis.cool/assets/bg.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

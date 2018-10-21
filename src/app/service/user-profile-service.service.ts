@@ -139,13 +139,13 @@ export class UserProfileServiceService {
   firstNames = ['Gabriel', 'David', 'Silvia', 'Georgeta', 'Matei', 'Andreea', 'Demo', 'Albert', 'Teodor', 'Liana'];
   lastNames = ['Stelian', 'Adam', 'Vasilescu', 'Negrescu', 'Grigorescu', 'Dumitru', 'Employee', 'Adam', 'Vasile', 'Dalca'];
   images = [
-    'http://www.avatarsdb.com/avatars/cardiogram_line.gif',
+    'https://bmt.devis.cool/assets/cardiogram_line.gif',
     'https://avatarfiles.alphacoders.com/153/thumb-153729.jpg',
     'https://avatarfiles.alphacoders.com/998/thumb-99803.gif',
     'https://avatarfiles.alphacoders.com/154/thumb-154654.png',
-    'http://www.avatarsdb.com/avatars/fire_01.gif',
+    'https://bmt.devis.cool/assets/fire_01.gif',
     'https://avatarfiles.alphacoders.com/154/thumb-154369.png',
-    'http://www.avatarsdb.com/avatars/hi.gif',
+    'https://bmt.devis.cool/assets/hi.gif',
     'https://avatarfiles.alphacoders.com/118/thumb-118334.jpg',
     'https://avatarfiles.alphacoders.com/842/thumb-84267.jpg',
     'https://avatarfiles.alphacoders.com/717/thumb-717.gif',
