@@ -1,14 +1,38 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+
+import {AppComponent} from './app.component';
+import {AnamnesisComponent} from './home/profile/extra/anamnesis/anamnesis.component';
+import {AlertModule} from 'ngx-bootstrap';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HomeModule} from './home/home.module';
+import {HomeRoutingModule} from './home/home-routing.module';
+import {AppRoutingModule} from './app-routing.module';
+import {LoginComponent} from './login/login.component';
+import {MaterialModule} from './material.module';
+import {SchedulerComponent} from './home/scheduler/scheduler.component';
+import {FormsModule} from '@angular/forms';
+import {PricingComponent} from './home/pricing/pricing.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AnamnesisComponent,
+    LoginComponent,
+    SchedulerComponent,
+    PricingComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HomeModule,
+    HomeRoutingModule,
+    AppRoutingModule,
+    AlertModule.forRoot(),
+    BrowserAnimationsModule,
+    MaterialModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

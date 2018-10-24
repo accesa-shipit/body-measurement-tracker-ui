@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="measurement" style="color: steelblue"> Body Measurements Tracker </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02"
+          aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="measurement" >Measurement <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="scheduler">Events</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="statistics">Statistics</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="messages">Messages <span class="badge badge-light">7</span></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="privacy">Privacy</a>
+      </li>
+    </ul>
+    <button type="button" class="btn btn-link" (click)="doLogout()">Logout</button>
+  </div>
+</nav>
+

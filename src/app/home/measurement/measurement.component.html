@@ -1,0 +1,323 @@
+<!--START sidebar-->
+
+<div class="card float-left search-collapsed" *ngIf="!searchVisible" style="margin-left: 20px;cursor: pointer"
+     (click)="searchVisible=!searchVisible">
+  <div class="card-header">
+    <i class="fas fa-search"></i>
+  </div>
+</div>
+<div class="card float-left card-search" *ngIf="searchVisible">
+  <div class="card-header" *ngIf="isTrainer">
+
+    <i class="fas fa-clock"></i> Find user <i class="fas fa-less-than icon-right"
+                                              (click)="searchVisible=!searchVisible"></i>
+  </div>
+
+  <div class="card-header" *ngIf="!isTrainer">
+
+    <i class="fas fa-clock"></i> &nbsp;Measurement queue
+  </div>
+
+
+  <div class="container">
+    <p></p>
+    <div class="input-group mb-3" *ngIf="isTrainer">
+      <input type="text" class="form-control" placeholder="Enter name" aria-label="Recipient's username"
+             aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">Search</button>
+      </div>
+
+    </div>
+
+
+    <div class="form-check" *ngIf="isTrainer">
+      <input class="form-check-input" type="checkbox" checked id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1">
+        17/11/2018 Oradea Plaza
+      </label>
+    </div>
+    <div class="form-check" *ngIf="isTrainer">
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1">
+        23/11/2018 Platinia
+      </label>
+    </div>
+    <div class="form-check" *ngIf="isTrainer">
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1">
+        30/11/2018 Olimpia
+      </label>
+    </div>
+
+    <div class="container">
+      <ul class="heroes">
+        <li *ngFor="let user of users;let i = index"
+            (click)="onSelect(user)"
+            [class.selected]="user === selectedUser"
+            [class.modified]="user.updateDate > today">
+          <span class="badge">{{i+1}}</span> {{user.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--END sidebar-->
+
+<div class="container">
+
+
+  <div class="card profile">
+    <h5 class="card-header"><i class="fas fa-user-astronaut fa-2x"></i> {{selectedUser.name}} - {{selectedUser.age}}
+      years
+    </h5>
+    <div class="card-body">
+      <!--<h5 class="card-title">Special title treatment</h5>-->
+      <div class="image float-left user-l">
+        <img [src]="selectedUser.profileImage" class="img-thumbnail" alt="avatar"/>
+      </div>
+      <div class="container-fluid">
+
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h6>Name: {{selectedUser?.name}}</h6>
+              <h6>Gender: {{selectedUser.gender}}</h6>
+              <h6>Age: {{selectedUser.age}}</h6>
+              <h6>Height: {{selectedUser.height}} cm <i class="far fa-edit"></i></h6>
+              <h6>Weight: {{selectedUser.measurements[0].weight}} kg</h6>
+              <h6>Base Caloric Intake: {{getBMR()}} kcal</h6>
+              <h6 *ngIf="getBMI()<18.5">BMI: <span style="color: #ffc107">{{getBMI()}} - You are underweight </span>
+              </h6>
+              <h6 *ngIf="getBMI()>18.5&&getBMI()<25">BMI: <span
+                style="color: green">{{getBMI()}} - You are healthy </span></h6>
+              <h6 *ngIf="getBMI()>25">BMI: <span style="color: #ffc107">{{getBMI()}} - You are overweight </span></h6>
+
+
+              <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+            </div>
+            <div class="col">
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Weight</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link premium" (click)="openModalWithComponent()">Arms</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link premium" (click)="openModalWithComponent()">Chest</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link premium" (click)="openModalWithComponent()">Waist</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link premium" (click)="openModalWithComponent()">Hips</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">More</a>
+                </li>
+                <!--<li class="nav-item">-->
+                <!--<div class="">-->
+                <!--<button type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                <!--More-->
+                <!--</button>-->
+                <!--<div class="dropdown-menu">-->
+                <!--<a class="dropdown-item" href="#">More</a>-->
+                <!--<a class="dropdown-item" href="#">Another action</a>-->
+                <!--<a class="dropdown-item" href="#">Something else here</a>-->
+                <!--<div class="dropdown-divider"></div>-->
+                <!--<a class="dropdown-item" href="#">Separated link</a>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</li>-->
+
+
+              </ul>
+              <router-outlet name="chart"></router-outlet>
+
+              <jqxChart #myChart
+                        [width]="560" [height]="200"
+                        [title]="'Weight'" [description]="'Last '+selectedUser.measurements.length+ ' measurements'"
+                        [showLegend]="true" [enableAnimations]="true" [padding]="padding"
+                        [titlePadding]="titlePadding" [(source)]="chartMeasurements" [xAxis]="xAxis"
+                        [valueAxis]="valueAxis" [seriesGroups]="seriesGroups" [colorScheme]="'scheme05'">
+              </jqxChart>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p></p>
+      <div class="card">
+        <h6 class="card-header">Measurement history</h6>
+
+        <div class="card-body">
+
+          <table class="table table-hover table-striped table-bordered table-responsive">
+            <thead>
+            <tr>
+
+              <th scope="col" class="align-middle text-center">Date</th>
+              <th scope="col">Weight</th>
+              <th scope="col">Left Arm</th>
+              <th scope="col">Right Arm</th>
+              <th scope="col">Chest</th>
+              <th scope="col">Waist</th>
+              <th scope="col">Hips</th>
+              <th scope="col">Left Thigh</th>
+              <th scope="col">Right Thigh</th>
+              <th scope="col">Left Calf</th>
+              <th scope="col">Right Calf</th>
+              <th scope="col">Fat %</th>
+              <th scope="col">Muscle Mass %</th>
+              <th scope="col">Action</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngIf="insertMode">
+              <th scope="row" class="row-header">{{newMeasurement.date | date}}</th>
+              <td><input #input1 class="form-control form-control-sm" type="number"
+                         [(ngModel)]="newMeasurement.weight"/></td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.leftArm"/></td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.rightArm"/></td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.chest"/></td>
+
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.waist"/></td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.hips"/></td>
+
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.leftThigh"/>
+              </td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.rightThigh"/>
+              </td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.leftCalf"/></td>
+              <td><input class="form-control form-control-sm" type="number" [(ngModel)]="newMeasurement.rightCalf"/>
+              </td>
+              <td><input class="form-control form-control-sm" type="number"
+                         [(ngModel)]="newMeasurement.bodyFatPercentage"/></td>
+              <td><input class="form-control form-control-sm" type="number"
+                         [(ngModel)]="newMeasurement.muscularMassPercentage"/></td>
+              <td>
+                <button class="btn-primary" (click)="insertMeasurement(newMeasurement)"><i
+                  class="far fa-save fa-2x"></i></button>
+              </td>
+            </tr>
+            <tr *ngFor="let measurement of selectedUser?.measurements ;let i = index">
+              <th scope="row" class="row-header">{{measurement.date | date}}</th>
+              <td>{{measurement.weight}}
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.weight < selectedUser.measurements[i+1].weight " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.weight > selectedUser.measurements[i+1].weight " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.weight == selectedUser.measurements[i+1].weight " class="fas fa-arrows-alt-h" style="color:blue"></i>
+              </td>
+              <td>{{measurement.leftArm}}
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftArm < selectedUser.measurements[i+1].leftArm " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftArm > selectedUser.measurements[i+1].leftArm " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftArm == selectedUser.measurements[i+1].leftArm " class="fas fa-arrows-alt-h" style="color:blue"></i>
+              </td>
+              <td>{{measurement.rightArm}}
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightArm < selectedUser.measurements[i+1].rightArm " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightArm > selectedUser.measurements[i+1].rightArm " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightArm == selectedUser.measurements[i+1].rightArm " class="fas fa-arrows-alt-h" style="color:blue"></i></td>
+              <td>{{measurement.chest}}
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.chest < selectedUser.measurements[i+1].chest " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.chest > selectedUser.measurements[i+1].chest " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.chest == selectedUser.measurements[i+1].chest " class="fas fa-arrows-alt-h" style="color:blue"></i>
+              </td>
+              <td>{{measurement.waist}}
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.waist < selectedUser.measurements[i+1].waist " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.waist > selectedUser.measurements[i+1].waist " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.waist == selectedUser.measurements[i+1].waist " class="fas fa-arrows-alt-h" style="color:blue"></i>
+              </td>
+              <td>{{measurement.hips}}
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.hips < selectedUser.measurements[i+1].hips " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.hips > selectedUser.measurements[i+1].hips " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.hips == selectedUser.measurements[i+1].hips " class="fas fa-arrows-alt-h" style="color:blue"></i>
+              </td>
+              <td>{{measurement.leftThigh}}
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh < selectedUser.measurements[i+1].rightThigh " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh > selectedUser.measurements[i+1].rightThigh " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh == selectedUser.measurements[i+1].rightThigh " class="fas fa-arrows-alt-h" style="color:blue"></i>
+              </td>
+              <td>{{measurement.rightThigh}}
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh < selectedUser.measurements[i+1].rightThigh " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh > selectedUser.measurements[i+1].rightThigh " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightThigh == selectedUser.measurements[i+1].rightThigh " class="fas fa-arrows-alt-h" style="color:blue"></i>
+              </td>
+              <td>{{measurement.leftCalf}}
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftCalf < selectedUser.measurements[i+1].leftCalf " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftCalf > selectedUser.measurements[i+1].leftCalf " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.leftCalf == selectedUser.measurements[i+1].leftCalf " class="fas fa-arrows-alt-h" style="color:blue"></i>
+              </td>
+              <td>{{measurement.rightCalf}}
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightCalf < selectedUser.measurements[i+1].rightCalf " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightCalf > selectedUser.measurements[i+1].rightCalf " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.rightCalf == selectedUser.measurements[i+1].rightCalf " class="fas fa-arrows-alt-h" style="color:blue"></i>
+              </td>
+              <td>{{measurement.bodyFatPercentage}}
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.bodyFatPercentage < selectedUser.measurements[i+1].bodyFatPercentage " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.bodyFatPercentage > selectedUser.measurements[i+1].bodyFatPercentage " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.bodyFatPercentage == selectedUser.measurements[i+1].bodyFatPercentage " class="fas fa-arrows-alt-h" style="color:blue"></i>
+              </td>
+              <td>{{measurement.muscularMassPercentage}}
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.muscularMassPercentage < selectedUser.measurements[i+1].muscularMassPercentage " class="fas fa-level-down-alt" style="color:green"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.muscularMassPercentage > selectedUser.measurements[i+1].muscularMassPercentage " class="fas fa-level-up-alt" style="color:red"></i>
+                <i *ngIf="i!=selectedUser.measurements.length-1 && measurement.muscularMassPercentage == selectedUser.measurements[i+1].muscularMassPercentage " class="fas fa-arrows-alt-h" style="color:blue"></i>
+              </td>
+              <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button class="btn-primary"><i class="far fa-edit"></i></button>
+                  <button class="btn-danger" (click)="deleteByIndex(i)"><i class="far fa-trash-alt"></i></button>
+                </div>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+          <button class="btn btn-primary" (click)="startInsertMode()" *ngIf="!insertMode">Add new measurements</button>
+          <button class="btn btn-warning" (click)="insertMode=false" *ngIf="insertMode">Cancel new measurement</button>
+
+
+        </div>
+      </div>
+      <p></p>
+
+      <div class="card">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'anamnesis'}}]"
+                 routerLinkActive="active">Anamnesis</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'screening'}}]"
+                 routerLinkActive="active">Screening</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'nutrition'}}]"
+                 routerLinkActive="active">Nutrition</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'exercises'}}]"
+                 routerLinkActive="active">Exercises</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'goals'}}]"
+                 routerLinkActive="active">Goals</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/home/measurement',{outlets:{extra:'messages'}}]"
+                 routerLinkActive="active">Messages</a>
+            </li>
+
+          </ul>
+        </div>
+        <div class="scroll">
+          <router-outlet name="extra"></router-outlet>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
